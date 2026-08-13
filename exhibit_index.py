@@ -19,7 +19,9 @@ try:
     from docx.shared import Inches, Pt, Cm
     from docx.enum.text import WD_ALIGN_PARAGRAPH
     from docx.enum.table import WD_TABLE_ALIGNMENT
-except ImportError:
+    # Test actual instantiation to catch version/lxml mismatches
+    _ = Document()
+except Exception:
     Document = None
 
 # ---------- Bates extraction ----------
